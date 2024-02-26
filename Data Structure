@@ -1,1 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mobile nav</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav {
+            z-index: -1;
+            display: flex;
+            background-color: white;
+            align-items: center;
+            gap: 20px;
+            border: solid rgb(121, 121, 121) 0.1px;
+            height: 40px;
+            width: 99.5%;
+            margin: auto;
+
+        }
+
+        .mobile {
+            z-index: 1;
+            position: fixed;
+            top: 0px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 200px;
+            height: 100vh;
+            border: solid rgb(121, 121, 121) 0.1px;
+            overflow-y: auto;
+            animation-name: coming;
+            animation-duration: 0.5s;
+            animation-timing-function: ease-in-out;
+        }
+
+        .dis {
+            display: none;
+        }
+
+
+        .nav>li {
+            list-style: none;
+        }
+
+        .mobile>li {
+            margin-left: 20px;
+            list-style: none;
+        }
+
+        #search {
+            height: 30px;
+            width: 20vw;
+        }
+
+        .icon{
+            display: none;
+        }
+
+        @media only screen and (max-width:550px) {
+            .opt {
+                display: none;
+            }
+            #search {
+                width: 275px;
+            }
+            .icon{
+                display: block;
+            }
+        }  
+
+        @media only screen and (min-width:550px) {
+            .mobile {
+                display: none;
+            }
+        }
+
+        @keyframes coming {
+            from{
+                margin-left: -200px;
+            }
+            to{
+
+            }
+        }
+
+        @keyframes going {
+            from{
+
+            }
+            to{
+                margin-left: -200px;
+            }
+        }
+
+        .going{
+            animation-name: going;
+            animation-duration: 0.5s;
+            animation-timing-function: ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        
+        <li><img src="./icon.webp" alt="icon" class="icon" height="32px"></li>
+        <li><img src="./web-com-vector-logo.png" id="logo" alt="logo" height="35px"></li>
+        <li class="opt">Home</li>
+        <li class="opt">Home</li>
+        <li class="opt">Home</li>
+        <li class="opt">Home</li>
+        <input type="search" name="search" id="search">
+    </nav>
+    <nav class="mobile dis going">
+        <li><img src="./icon.webp" alt="icon" class="icon" height="32px"></li>
+        <li>Home</li>
+        <li>Home</li>
+        <li>Home</li>
+        <li>Home</li>
+        <li>Home</li>
+        <li>Home</li>
+        <li>Home</li>
+        <li>Home</li>
+        <li>Home</li>
+        <li>Home</li>
+
+    </nav>
+    <script>
+        let icon = document.querySelectorAll(".icon");
+        icon[0].addEventListener("click", () => {
+            
+            document.querySelector(".mobile").classList.toggle("dis")
+            document.querySelector(".mobile").classList.toggle("going")
+
+        })
+        icon[1].addEventListener("click", () => {
+
+            setTimeout(() => {
+                document.querySelector(".mobile").classList.toggle("dis")
+            }, 450);
+
+            document.querySelector(".mobile").classList.toggle("going")
+
+        })
+
+    </script>
+</body>
+
+</html>
